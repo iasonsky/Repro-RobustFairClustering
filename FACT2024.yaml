@@ -1,0 +1,10 @@
+name: FACT2024
+dependencies:
+  - kmedoids
+  - gdown
+  - python-mnist
+  - pulp
+  - scikit-learn==0.22.2
+  - zoopt
+  - pyckmeans
+  - torch
