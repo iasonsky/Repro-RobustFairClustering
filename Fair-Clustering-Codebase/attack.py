@@ -200,7 +200,7 @@ def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
       return ScalableFairletDecomposition(n_clusters=n_clusters, alpha=5, beta=beta, random_state=random_state)
   elif cl_algo == 'KFC':
       return FairKCenter(n_clusters=n_clusters, delta=0.1, random_state=random_state)
-     
+    
 def print_and_save_results(result_dict, result_name, name, cl_algo):
     '''Prints and saves the results in a pickle file.'''
     print(f'{result_name} Results')
