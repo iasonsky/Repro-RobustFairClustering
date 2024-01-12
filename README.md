@@ -20,8 +20,8 @@ pyckmeans
     - On snellius, the dataset like mnist_usps should be put in /gpfs/home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps.
     - The links to each dataset are:
       1. office31:
-        "domain_adaptation_features_20110616.tar.gz": "https://drive.google.com/u/0/uc?id=0B4IapRTv9pJ1WTVSd2FIcW4wRTA&export=download",
-        "office31_resnet50.zip": "https://wjdcloud.blob.core.windows.net/dataset/office31_resnet50.zip"
+        - "domain_adaptation_features_20110616.tar.gz": "https://drive.google.com/u/0/uc?id=0B4IapRTv9pJ1WTVSd2FIcW4wRTA&export=download",
+        - "office31_resnet50.zip": "https://wjdcloud.blob.core.windows.net/dataset/office31_resnet50.zip"
       2. mnist_usps:
          https://mega.nz/folder/oHJ2UCoK#r62nRoZ0gH8NXIcgmyWReA
 
