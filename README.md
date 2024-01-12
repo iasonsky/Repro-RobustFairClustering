@@ -15,14 +15,13 @@ pyckmeans
 ### Instructions:
 - For the attack section of the paper, please follow the code in `Attack.ipynb`.
 
-- For the defense section of the paper, if you work on snellius, please navigate to the directory Fair-Clustering-Codebase, using the job file run_defense.job to run Defense.py. Otherwise it's similar to attack section above.
-  - Whichever your choice, it might be better to download the required datasets mnist_usps and office31 locally to avoid linkage problem.
-    - On snellius, the dataset like mnist_usps should be put in /gpfs/home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps.
-    - The links to each dataset are:
-      1. office31:
-        - "domain_adaptation_features_20110616.tar.gz": "https://drive.google.com/u/0/uc?id=0B4IapRTv9pJ1WTVSd2FIcW4wRTA&export=download",
-        - "office31_resnet50.zip": "https://wjdcloud.blob.core.windows.net/dataset/office31_resnet50.zip"
-      2. mnist_usps:
+- For the defense section of the paper, if you work on snellius, please navigate to the directory Fair-Clustering-Codebase, using the job file run_defense.job to run Defense.py. Otherwise it's similar to attack section above. Whichever your choice, it might be better to download the required datasets mnist_usps and office31 locally to avoid linkage problem. After you test on one of the dataset, you can change to another dataset by navigating to the comment in Defense.py " #Choose between Office-31, MNIST_USPS, Yale, or DIGITS", and replace the dataset name there. We didn't use a loop to experiment with all dataset in one run in order to save the computation resources on snellius considering the limited provided gpu usage time units.
+  - On snellius, the dataset like mnist_usps should be put in /gpfs/home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps.
+  - The links to each dataset are:
+    1. office31:
+      - "domain_adaptation_features_20110616.tar.gz": "https://drive.google.com/u/0/uc?id=0B4IapRTv9pJ1WTVSd2FIcW4wRTA&export=download",
+      - "office31_resnet50.zip": "https://wjdcloud.blob.core.windows.net/dataset/office31_resnet50.zip"
+    2. mnist_usps:
          https://mega.nz/folder/oHJ2UCoK#r62nRoZ0gH8NXIcgmyWReA
 
 - Using the code provided in these notebooks, the experimental results in the paper can be obtained.
