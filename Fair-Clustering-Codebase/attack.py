@@ -42,8 +42,8 @@ else:
   print('Invalid dataset name')
   sys.exit()
 
-# cl_algo can only be FSC or SFD #TODO: Add KFC
-if cl_algo != 'FSC' and cl_algo != 'SFD':
+# cl_algo can only be FSC or SFD
+if cl_algo != 'FSC' and cl_algo != 'SFD' and cl_algo != 'KFC':
   print('Invalid clustering algorithm name')
   sys.exit()
 
@@ -190,7 +190,7 @@ def calculate_budget(name, cl_algo):
     elif cl_algo == 'SFD':
       return 25
 
-def select_clustering_algorithm(name, cl_algo, n_clusters, random_state): #TODO: Add KFC
+def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
   '''Selects the clustering algorithm based on the dataset and the clustering algorithm name'''
   metric_str = 'manhattan' if name == 'MNIST_USPS' else 'euclidean'
   if cl_algo == 'FSC':
@@ -198,7 +198,9 @@ def select_clustering_algorithm(name, cl_algo, n_clusters, random_state): #TODO:
   elif cl_algo == 'SFD':
       beta = 1 if name == 'DIGITS' else 2
       return ScalableFairletDecomposition(n_clusters=n_clusters, alpha=5, beta=beta, random_state=random_state)
-
+  elif cl_algo == 'KFC':
+      return FairKCenter(n_clusters=n_clusters, delta=0.1, random_state=random_state)
+    
 def print_and_save_results(result_dict, result_name, name, cl_algo):
     '''Prints and saves the results in a pickle file.'''
     print(f'{result_name} Results')
