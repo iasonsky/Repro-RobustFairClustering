@@ -7,13 +7,16 @@ gdown
 kmedoids
 pulp
 torch
-scikit-learn==0.22.2
+scikit-learn==1.2.2  # This version works.
 zoopt
 pyckmeans
 ```
 
 ### Instructions:
 - For the attack section of the paper, please follow the code in `Attack.ipynb`.
-- For the defense section of the paper, please follow the code in `Defense.ipynb`.
+
+- For the defense section of the paper, if you use Google Colab, please follow the code in `Defense.ipynb`.
+  - If you work on snellius, please navigate to the directory Fair-Clustering-Codebase, using the job file run_defense.job to run Defense.py.
+
 - Using the code provided in these notebooks, the experimental results in the paper can be obtained.
 - If there any questions, please reach out to ```{last_name}@ucdavis.edu``` where ```{last_name}``` is the first author's last name.
