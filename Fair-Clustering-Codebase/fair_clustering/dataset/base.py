@@ -72,8 +72,8 @@ class Dataset(ABC):
         """ Validation """
 
         self.X = self.X.astype(np.float64)
-        self.y = self.y.astype(np.int)
-        self.s = self.s.astype(np.int)
+        self.y = self.y.astype(np.int64)
+        self.s = self.s.astype(np.int64)
 
         assert len(np.unique(self.y)) > 1, "Only one class exists in the dataset"
         assert np.any(self.y) >= 0, "Class label should be an integer larger or equal to zero"
