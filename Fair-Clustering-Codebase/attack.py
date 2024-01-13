@@ -159,6 +159,8 @@ def calculate_budget(name, cl_algo):
       return 10
     elif cl_algo == 'SFD':
       return 50
+    elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
+      return 20
   elif name == 'Office-31':
     return 20
   elif name == 'Yale':
@@ -166,11 +168,15 @@ def calculate_budget(name, cl_algo):
       return 10
     elif cl_algo == 'SFD':
       return 20
+    elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
+      return 20
   elif name == 'DIGITS':
     if cl_algo == 'FSC':
       return 15
     elif cl_algo == 'SFD':
       return 25
+    elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
+      return 20
 
 def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
   '''Selects the clustering algorithm based on the dataset and the clustering algorithm name'''
