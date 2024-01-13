@@ -113,19 +113,10 @@ def process_solution(sol):
   fair_clustering_algo.fit(X_copy, s_copy)
   labels_sfd = fair_clustering_algo.labels_
 
-  s_eval = []
-  X_eval = []
-  labels_sfd_eval = []
-  y_eval = []
-  for idx in V_idx:
-    s_eval.append(s_copy[idx])
-    X_eval.append(X_copy[idx])
-    labels_sfd_eval.append(labels_sfd[idx])
-    y_eval.append(y_copy[idx])
-  s_eval = np.array(s_eval)
-  X_eval = np.array(X_eval)
-  labels_sfd_eval = np.array(labels_sfd_eval)
-  y_eval = np.array(y_eval)
+  s_eval = np.array([s_copy[idx] for idx in V_idx])
+  X_eval = np.array([X_copy[idx] for idx in V_idx])
+  labels_sfd_eval = np.array([labels_sfd[idx] for idx in V_idx])
+  y_eval = np.array([y_copy[idx] for idx in V_idx])
 
   bal = balance(labels_sfd_eval, X_eval, s_eval)
   ent = entropy(labels_sfd_eval, s_eval)
@@ -146,19 +137,10 @@ def conduct_random_attack(size_sol):
   fair_clustering_algo.fit(X_copy, s_copy)
   labels_sfd = fair_clustering_algo.labels_
 
-  s_eval = []
-  X_eval = []
-  labels_sfd_eval = []
-  y_eval = []
-  for idx in V_idx:
-    s_eval.append(s_copy[idx])
-    X_eval.append(X_copy[idx])
-    labels_sfd_eval.append(labels_sfd[idx])
-    y_eval.append(y_copy[idx])
-  s_eval = np.array(s_eval)
-  X_eval = np.array(X_eval)
-  labels_sfd_eval = np.array(labels_sfd_eval)
-  y_eval = np.array(y_eval)
+  s_eval = np.array([s_copy[idx] for idx in V_idx])
+  X_eval = np.array([X_copy[idx] for idx in V_idx])
+  labels_sfd_eval = np.array([labels_sfd[idx] for idx in V_idx])
+  y_eval = np.array([y_copy[idx] for idx in V_idx])
 
   bal = balance(labels_sfd_eval, X_eval, s_eval)
   ent = entropy(labels_sfd_eval, s_eval)
