@@ -13,6 +13,3 @@ the 'module load <package__name>' command. If you are uncertain if a package is
 already available 
 on the system, please use 'module avail' or 'module spider' to search for it.
 ============================================================================================== 
-slurmstepd: error: *** JOB 4854472 ON gcn14 CANCELLED AT 2024-01-13T18:16:13 DUE TO TIME LIMIT ***
-slurmstepd: error: *** STEP 4854472.0 ON gcn14 CANCELLED AT 2024-01-13T18:16:13 DUE TO TIME LIMIT ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

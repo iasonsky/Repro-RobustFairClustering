@@ -6,3 +6,17 @@ Number of Data Points: 1293
 Number of Sensitive Features: 2
 Number of Features: 2048
 # of clusters -> 31
+
+JOB STATISTICS
+==============
+Job ID: 4854472
+Cluster: snellius
+User/Group: scur1047/scur1047
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 01:59:55
+CPU Efficiency: 5.53% of 1-12:08:06 core-walltime
+Job Wall-clock time: 02:00:27
+Memory Utilized: 208.86 MB
+Memory Efficiency: 0.17% of 120.00 GB
