@@ -1,0 +1,68 @@
+(1293, 2048), (1293,), (1293,)
+Clustering Algorithm: FSC
+Dataset: Office-31
+Number of Clusters: 31
+Number of Data Points: 1293
+Number of Sensitive Features: 2
+Number of Features: 2048
+# of clusters -> 31
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0]
+[zoopt] value: 0.0
+[zoopt] expected remaining running time: 00:00:06
+[zoopt] x: [0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0]
+[zoopt] value: 0.0
+Pre-Attack Results
+BALANCE: Mean = 0.0, Std = 0.0
+ENTROPY: Mean = 9.163894430871604, Std = 0.11887775320203212
+ACC: Mean = 0.3896048109965635, Std = 0.014626272890575906
+NMI: Mean = 0.6523739834557724, Std = 0.01236019946466048
+Post-Attack Results
+BALANCE: Mean = 0.0, Std = 0.0
+ENTROPY: Mean = 9.383341753656023, Std = 0.3008973755992951
+ACC: Mean = 0.4378006872852234, Std = 0.02885421540682853
+NMI: Mean = 0.6818852016406967, Std = 0.0270903579623607
+Random Attack Results
+BALANCE: Mean = 0.2106734916641529, Std = 0.2108115479315272
+ENTROPY: Mean = 9.628261084937986, Std = 0.21279269667097306
+ACC: Mean = 0.43591065292096215, Std = 0.0391024674933071
+NMI: Mean = 0.6853724495993451, Std = 0.030177332657900416
+
+JOB STATISTICS
+==============
+Job ID: 4854643
+Cluster: snellius
+User/Group: scur1047/scur1047
+State: RUNNING
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:16:30 core-walltime
+Job Wall-clock time: 00:01:50
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.
