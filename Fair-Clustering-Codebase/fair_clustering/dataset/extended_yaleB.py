@@ -16,8 +16,7 @@ class ExtendedYaleB(ImageDataset):
     }
 
     def __init__(self, download=True, center=True, resize=False):
-        self.download_or_check_data(self.dataset_dir, self.file_url, download)
-
+        # self.download_or_check_data(self.dataset_dir, self.file_url, download) # Manually download the dataset
         dataset_dir = os.path.join(self.dataset_dir, "CroppedYale")
         dataset_folders = os.listdir(dataset_dir)
         all_img_paths = []
