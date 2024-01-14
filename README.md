@@ -23,6 +23,8 @@ pyckmeans
       - "office31_resnet50.zip": "https://wjdcloud.blob.core.windows.net/dataset/office31_resnet50.zip"
     2. mnist_usps:
          https://mega.nz/folder/oHJ2UCoK#r62nRoZ0gH8NXIcgmyWReA
+    3. Extended YaleB:
+         https://academictorrents.com/details/aad8bf8e6ee5d8a3bf46c7ab5adfacdd8ad36247
 
 - Using the code provided in these notebooks, the experimental results in the paper can be obtained.
 - If there any questions, please reach out to ```{last_name}@ucdavis.edu``` where ```{last_name}``` is the first author's last name.
