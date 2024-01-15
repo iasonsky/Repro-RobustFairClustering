@@ -188,7 +188,7 @@ def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
       return ScalableFairletDecomposition(n_clusters=n_clusters, alpha=5, beta=beta, random_state=random_state)
   elif cl_algo == 'KFC':
       return FairKCenter(n_clusters=n_clusters, delta=0.1, random_state=random_state)
-    
+
 def print_and_save_results(result_dict, result_name, name, cl_algo):
     '''Prints and saves the results in a pickle file.'''
     print(f'{result_name} Results')
@@ -205,11 +205,14 @@ def create_objective(name, cl_algo, dim_size, attack_balance, attack_entropy):
     dim = Dimension(dim_size, [[0, 1]]*dim_size, [False]*dim_size)
 
     if name == 'Office-31':
-        return Objective(attack_balance, dim)
+        if cl_algo == 'KFC':
+          return Objective(attack_entropy, dim)
+        else:
+          return Objective(attack_balance, dim)
     elif name in ['MNIST_USPS', 'DIGITS']:
         if cl_algo == 'SFD':
             return Objective(attack_balance, dim)
-        elif cl_algo == 'FSC':
+        elif cl_algo == 'FSC' or cl_algo == 'KFC':
             return Objective(attack_entropy, dim)
     elif name == 'Yale':
         return Objective(attack_entropy, dim)
@@ -246,7 +249,7 @@ V_idx = V_idx_full
 
 for trial_idx in range(n_trials):
   random_state = seeds[trial_idx]
-
+  print(f"Trial {trial_idx + 1} with random state {random_state}")
   # Initialize clustering algorithm
   fair_algo = select_clustering_algorithm(name, cl_algo, n_clusters, random_state)
   fair_algo.fit(X, s)
