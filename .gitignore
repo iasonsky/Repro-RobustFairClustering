@@ -2,3 +2,4 @@
 *.png
 *.pkl
 *.txt
+!Fair-Clustering-Codebase/plot_data/**/*.pkl
