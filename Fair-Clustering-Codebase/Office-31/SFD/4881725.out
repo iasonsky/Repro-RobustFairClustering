@@ -1,0 +1,316 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius+and+Lisa#SoftwarepolicySnelliusandLisa-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+(1293, 2048), (1293,), (1293,)
+Clustering Algorithm: SFD
+Dataset: Office-31
+Number of Clusters: 31
+Number of Data Points: 1293
+Number of Sensitive Features: 2
+Number of Features: 2048
+# of clusters -> 31
+Trial 1 with random state 150 and percentage = 0
+[zoopt] racos_common.py: WARNING -- sample space has been fully enumerated. Stop early
+[zoopt] racos_common: WARNING -- sample space has been fully explored. Stop early
+[zoopt]  [break loop] because solution is None
+[zoopt] x: []
+[zoopt] value: 0.5665458871883619
+Trial 2 with random state 1 and percentage = 0
+[zoopt] racos_common.py: WARNING -- sample space has been fully enumerated. Stop early
+[zoopt] racos_common: WARNING -- sample space has been fully explored. Stop early
+[zoopt]  [break loop] because solution is None
+[zoopt] x: []
+[zoopt] value: 0.5665458871883619
+Trial 3 with random state 4200 and percentage = 0
+[zoopt] racos_common.py: WARNING -- sample space has been fully enumerated. Stop early
+[zoopt] racos_common: WARNING -- sample space has been fully explored. Stop early
+[zoopt]  [break loop] because solution is None
+[zoopt] x: []
+[zoopt] value: 0.5665458871883619
+Trial 1 with random state 150 and percentage = 300
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 1, 0]
+[zoopt] value: 0.3366432083293165
+Trial 2 with random state 1 and percentage = 300
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 1]
+[zoopt] value: 0.3366432083293165
+Trial 3 with random state 4200 and percentage = 300
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 1]
+[zoopt] value: 0.3366432083293165
+Trial 1 with random state 150 and percentage = 900
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [0, 0, 0, 1, 1, 0, 1, 0, 1]
+[zoopt] value: 0.26699288936463034
+Trial 2 with random state 1 and percentage = 900
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [1, 0, 0, 1, 0, 1, 1, 0, 1]
+[zoopt] value: 0.26699288936463034
+Trial 3 with random state 4200 and percentage = 900
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 0, 0, 1, 1, 1, 1, 0]
+[zoopt] value: 0.26699288936463034
+Trial 1 with random state 150 and percentage = 1400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1]
+[zoopt] value: 0.25809312638580933
+Trial 2 with random state 1 and percentage = 1400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0]
+[zoopt] value: 0.26699288936463034
+Trial 3 with random state 4200 and percentage = 1400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1]
+[zoopt] value: 0.1518194861092996
+Trial 1 with random state 150 and percentage = 1900
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0]
+[zoopt] value: 0.1518194861092996
+Trial 2 with random state 1 and percentage = 1900
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1]
+[zoopt] value: 0.1433850702143385
+Trial 3 with random state 4200 and percentage = 1900
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1]
+[zoopt] value: 0.1518194861092996
+Trial 1 with random state 150 and percentage = 2400
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+[zoopt] value: 0.1433850702143385
+Trial 2 with random state 1 and percentage = 2400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0]
+[zoopt] value: 0.3519451723442854
+Trial 3 with random state 4200 and percentage = 2400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1]
+[zoopt] value: 0.22442880555287764
+Trial 1 with random state 150 and percentage = 2900
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0]
+[zoopt] value: 0.1518194861092996
+Trial 2 with random state 1 and percentage = 2900
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0]
+[zoopt] value: 0.2949635730123535
+Trial 3 with random state 4200 and percentage = 2900
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0]
+[zoopt] value: 0.1433850702143385
+Trial 1 with random state 150 and percentage = 3400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0]
+[zoopt] value: 0.1433850702143385
+Trial 2 with random state 1 and percentage = 3400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1]
+[zoopt] value: 0.1433850702143385
+Trial 3 with random state 4200 and percentage = 3400
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0]
+[zoopt] value: 0.20926469706957512
+Trial 1 with random state 150 and percentage = 3800
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0]
+[zoopt] value: 0.1433850702143385
+Trial 2 with random state 1 and percentage = 3800
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0]
+[zoopt] value: 0.22442880555287764
+Trial 3 with random state 4200 and percentage = 3800
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0]
+[zoopt] value: 0.22442880555287764
+--- Pre-Attack Results ---
+Result for key 0:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 1:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 2:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 3:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 4:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 5:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 6:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 7:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 8:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+--- Post-Attack Results ---
+Result for key 0:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 1:
+  BALANCE: [0.3366432083293165, 0.3366432083293165, 0.3366432083293165]
+  ENTROPY: [9.987473300281065, 9.888191057107745, 9.89776334708714]
+  ACC: [0.7826460481099656, 0.7577319587628866, 0.781786941580756]
+  NMI: [0.8757199882583249, 0.8619961812342778, 0.8680428352098946]
+
+Result for key 2:
+  BALANCE: [0.26699288936463034, 0.26699288936463034, 0.26699288936463034]
+  ENTROPY: [9.813615075934258, 9.829792346347958, 9.867753122461126]
+  ACC: [0.7542955326460481, 0.770618556701031, 0.7792096219931272]
+  NMI: [0.8582460490742955, 0.8637516444557575, 0.8709480666770198]
+
+Result for key 3:
+  BALANCE: [0.25809312638580933, 0.26699288936463034, 0.1518194861092996]
+  ENTROPY: [9.889568607819477, 9.833784443757471, 9.71195103131527]
+  ACC: [0.738831615120275, 0.7680412371134021, 0.7268041237113402]
+  NMI: [0.8554393152778993, 0.8689081458241068, 0.8513967315933598]
+
+Result for key 4:
+  BALANCE: [0.1518194861092996, 0.1433850702143385, 0.1518194861092996]
+  ENTROPY: [9.866797659268382, 9.783259753793224, 9.834609633168345]
+  ACC: [0.7723367697594502, 0.7680412371134021, 0.7903780068728522]
+  NMI: [0.8666109438289944, 0.8648742123021166, 0.8769418386540427]
+
+Result for key 5:
+  BALANCE: [0.1433850702143385, 0.3519451723442854, 0.22442880555287764]
+  ENTROPY: [9.875565978076038, 9.83878959714032, 9.816556618142116]
+  ACC: [0.7628865979381443, 0.7225085910652921, 0.7620274914089347]
+  NMI: [0.8624604929289246, 0.8400482779241827, 0.8662334733619597]
+
+Result for key 6:
+  BALANCE: [0.1518194861092996, 0.2949635730123535, 0.1433850702143385]
+  ENTROPY: [9.7460172214187, 9.829937721898041, 9.736911889969921]
+  ACC: [0.7757731958762887, 0.7577319587628866, 0.8006872852233677]
+  NMI: [0.8628184696337257, 0.8572533204725479, 0.8748014797641037]
+
+Result for key 7:
+  BALANCE: [0.1433850702143385, 0.1433850702143385, 0.20926469706957512]
+  ENTROPY: [9.82629535867175, 9.895981656803668, 9.909470716814608]
+  ACC: [0.7628865979381443, 0.8041237113402062, 0.7955326460481099]
+  NMI: [0.8511534530297309, 0.8607952922857096, 0.8595008314106986]
+
+Result for key 8:
+  BALANCE: [0.1433850702143385, 0.22442880555287764, 0.22442880555287764]
+  ENTROPY: [9.680225763027916, 9.865446348167087, 9.96676961008668]
+  ACC: [0.7620274914089347, 0.7731958762886598, 0.7654639175257731]
+  NMI: [0.8573414673025105, 0.8638964417703636, 0.8556230858545048]
+
+--- Random Attack Results ---
+Result for key 0:
+  BALANCE: [0.5665458871883619, 0.5665458871883619, 0.5665458871883619]
+  ENTROPY: [10.110003313812062, 10.11000331381206, 10.11000331381206]
+  ACC: [0.8376288659793815, 0.8376288659793815, 0.8376288659793815]
+  NMI: [0.8847645846751796, 0.8847645846751796, 0.8847645846751797]
+
+Result for key 1:
+  BALANCE: [0.3366432083293165, 0.35846267553584626, 0.3871396895787139]
+  ENTROPY: [9.939873003563225, 10.006924348926233, 9.90284480857093]
+  ACC: [0.7972508591065293, 0.8032646048109966, 0.8049828178694158]
+  NMI: [0.8753914136525623, 0.8829485196344182, 0.8847922374492975]
+
+Result for key 2:
+  BALANCE: [0.2977997612143954, 0.3519451723442854, 0.3366432083293165]
+  ENTROPY: [9.96888732376205, 9.8936795124704, 9.867132059601118]
+  ACC: [0.7542955326460481, 0.8084192439862543, 0.7920962199312714]
+  NMI: [0.8492682259556887, 0.8768072522509124, 0.8695993390114639]
+
+Result for key 3:
+  BALANCE: [0.4692602297923806, 0.1518194861092996, 0.6040477426050856]
+  ENTROPY: [9.908865654235925, 9.847719704376622, 9.988151442084895]
+  ACC: [0.7233676975945017, 0.7680412371134021, 0.7912371134020618]
+  NMI: [0.8410818614214914, 0.8700499496570524, 0.8704015725827372]
+
+Result for key 4:
+  BALANCE: [0.3519451723442854, 0.1518194861092996, 0.33302338888491523]
+  ENTROPY: [9.839748666564759, 9.617726484887221, 9.949819908128894]
+  ACC: [0.7457044673539519, 0.7646048109965635, 0.8118556701030928]
+  NMI: [0.848306923474305, 0.861235883063287, 0.8718751849286387]
+
+Result for key 5:
+  BALANCE: [0.36870446626544184, 0.1518194861092996, 0.1433850702143385]
+  ENTROPY: [9.956086306631143, 9.833459988154729, 9.8647376935135]
+  ACC: [0.7353951890034365, 0.7843642611683849, 0.7835051546391752]
+  NMI: [0.8504631013931488, 0.8557504067141477, 0.8740920328106581]
+
+Result for key 6:
+  BALANCE: [0.3970663482858605, 0.4488576111057553, 0.1433850702143385]
+  ENTROPY: [9.920187944635636, 9.972680604086683, 9.88510872920468]
+  ACC: [0.8109965635738832, 0.8067010309278351, 0.8067010309278351]
+  NMI: [0.8727340982964054, 0.8746955845779681, 0.8766108982729844]
+
+Result for key 7:
+  BALANCE: [0.5530566993981628, 0.5955995224287908, 0.1518194861092996]
+  ENTROPY: [10.013741788386277, 9.999305115271047, 9.773111353351567]
+  ACC: [0.7946735395189003, 0.7792096219931272, 0.8058419243986255]
+  NMI: [0.8604408398683782, 0.8600128669696063, 0.8641829145998817]
+
+Result for key 8:
+  BALANCE: [0.3871396895787139, 0.3366432083293165, 0.36870446626544184]
+  ENTROPY: [9.975023430560853, 9.98240105936112, 9.788667075481673]
+  ACC: [0.7783505154639175, 0.7001718213058419, 0.7946735395189003]
+  NMI: [0.8719120712636945, 0.828061236009342, 0.8665015400476896]
+
+
+JOB STATISTICS
+==============
+Job ID: 4881725
+Cluster: snellius
+User/Group: scur1047/scur1047
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:25:56
+CPU Efficiency: 5.47% of 07:54:18 core-walltime
+Job Wall-clock time: 00:26:21
+Memory Utilized: 258.99 MB
+Memory Efficiency: 0.21% of 120.00 GB
