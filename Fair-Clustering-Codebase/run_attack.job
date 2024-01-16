@@ -6,8 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --time=00:55:00
-#SBATCH --output=Office-31_FSC_%A.out
-#SBATCH --error=Office-31_FSC_%A.err
+#SBATCH --output=Office-31/FSC/%A.out
 
 module purge
 module load 2022
@@ -17,4 +16,4 @@ module load Anaconda3/2022.05
 source activate FACT2024 
 
 # Run your code
-srun python -u attack.py --dataset Office-31 --cl_algo FSC
+srun python -u attack_for_plots.py --dataset Office-31 --cl_algo FSC

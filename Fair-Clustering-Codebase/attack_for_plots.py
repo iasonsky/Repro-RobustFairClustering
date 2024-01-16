@@ -232,6 +232,27 @@ def save_attack_data(name, cl_algo, pre_attack_res, post_attack_res, random_atta
     with open(os.path.join(folder_path, 'random_attack_res.pkl'), 'wb') as f:
         pickle.dump(random_attack_res, f)
 
+def print_all_results(pre_attack_res, post_attack_res, random_attack_res):
+    """
+    Prints all results in a structured format.
+
+    Parameters:
+    pre_attack_res, post_attack_res, random_attack_res (dict): Dictionaries containing the results to be printed.
+    """
+    
+    def print_results(name, results):
+        print(f"--- {name} ---")
+        for key, metrics in results.items():
+            print(f"Result for key {key}:")
+            for metric, values in metrics.items():
+                print(f"  {metric}: {values}")
+            print()  # Adds a blank line for better readability
+
+    # Print each set of results
+    print_results("Pre-Attack Results", pre_attack_res)
+    print_results("Post-Attack Results", post_attack_res)
+    print_results("Random Attack Results", random_attack_res)
+
 # Main code
 n_clusters = len(np.unique(y))
 print(f"{X.shape}, {y.shape}, {s.shape}")
@@ -292,7 +313,7 @@ for percent, j in enumerate([0, int(0.03*len(U_idx_full)), int(0.075*len(U_idx_f
 
   for trial_idx in range(n_trials):
     random_state = seeds[trial_idx]
-    print(f"Trial {trial_idx + 1} with random state {random_state}")
+    print(f"Trial {trial_idx + 1} with random state {random_state} and percentage = {j * 100}")
     # Initialize clustering algorithm
     fair_algo = select_clustering_algorithm(name, cl_algo, n_clusters, random_state)
     fair_algo.fit(X, s)
@@ -328,3 +349,5 @@ for percent, j in enumerate([0, int(0.03*len(U_idx_full)), int(0.075*len(U_idx_f
 
 # Save results
 save_attack_data(name, cl_algo, pre_attack_res, post_attack_res, random_attack_res)
+# Print results
+print_all_results(pre_attack_res, post_attack_res, random_attack_res)
