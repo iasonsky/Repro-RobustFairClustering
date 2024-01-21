@@ -1,0 +1,123 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius+and+Lisa#SoftwarepolicySnelliusandLisa-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+(2414, 2016), (2414,), (2414,)
+Clustering Algorithm: FSC
+Dataset: Yale
+Number of Clusters: 38
+Number of Data Points: 2414
+Number of Sensitive Features: 2
+Number of Features: 2016
+# of clusters -> 38
+Trial 1 with random state 150
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0]
+[zoopt] value: 3.2868946003878063
+Trial 2 with random state 1
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+[zoopt] value: 3.2454070417030927
+Trial 3 with random state 4200
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0]
+[zoopt] value: 3.181623888439515
+Trial 4 with random state 424242
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0]
+[zoopt] value: 3.3114602855748996
+Trial 5 with random state 1947
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1]
+[zoopt] value: 3.4177433470126752
+Trial 6 with random state 355
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0]
+[zoopt] value: 3.233820953270415
+Trial 7 with random state 256
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1]
+[zoopt] value: 3.2360853008560446
+Trial 8 with random state 7500
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1]
+[zoopt] value: 3.2354320695697814
+Trial 9 with random state 99999
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0]
+[zoopt] value: 3.3106196803389567
+Trial 10 with random state 18
+[zoopt] expected remaining running time: 00:00:24
+[zoopt] x: [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1]
+[zoopt] value: 3.1558862827994854
+
+Pre-Attack Results for Yale and FSC
+=========================================
+BALANCE: Mean = 0.0, Std = 0.0
+MIN_CLUSTER_RATIO: Mean = 0.0, Std = 0.0
+CLUSTER_DIST_L1: Mean = 0.7601957446808513, Std = 0.025245810546572177
+CLUSTER_DIST_KL: Mean = inf, Std = nan
+SILHOUETTE_DIFF: Mean = 0.0040195695868345295, Std = 0.004253922149153307
+ENTROPY: Mean = 3.401820609812655, Std = 0.08314844811580621
+ENTROPY_GROUP_A: Mean = 2.9657147539751323, Std = 0.021314525954985186
+ENTROPY_GROUP_B: Mean = 2.2799189010138448, Std = 0.023999498347985614
+ACC: Mean = 0.27301775147928986, Std = 0.0016778043643500325
+NMI: Mean = 0.36702308849034493, Std = 0.003422384608461342
+ARI: Mean = 0.06188811728759965, Std = 0.002157183982770897
+SIL: Mean = -0.009049579420950363, Std = 0.011795933980044448
+
+Post-Attack Results for Yale and FSC
+=========================================
+BALANCE: Mean = 0.0, Std = 0.0
+MIN_CLUSTER_RATIO: Mean = 0.0, Std = 0.0
+CLUSTER_DIST_L1: Mean = 0.7441929078014186, Std = 0.05244889228090419
+CLUSTER_DIST_KL: Mean = inf, Std = nan
+SILHOUETTE_DIFF: Mean = 0.008398547294305277, Std = 0.005055516290793733
+ENTROPY: Mean = 3.2614973449952673, Std = 0.07060499245694053
+ENTROPY_GROUP_A: Mean = 2.918149757110105, Std = 0.08681235692897062
+ENTROPY_GROUP_B: Mean = 2.2571147722572773, Std = 0.03176743885584269
+ACC: Mean = 0.27366863905325445, Std = 0.0039538849401865315
+NMI: Mean = 0.3653574075839527, Std = 0.003647765069463623
+ARI: Mean = 0.058210810622284524, Std = 0.006963287537046824
+SIL: Mean = -0.019732940945743665, Std = 0.017343498578554523
+
+Random Attack Results for Yale and FSC
+=========================================
+BALANCE: Mean = 0.0, Std = 0.0
+MIN_CLUSTER_RATIO: Mean = 0.0, Std = 0.0
+CLUSTER_DIST_L1: Mean = 0.7618070921985816, Std = 0.012567902907477243
+CLUSTER_DIST_KL: Mean = inf, Std = nan
+SILHOUETTE_DIFF: Mean = 0.001949952771210631, Std = 0.004995089440627527
+ENTROPY: Mean = 3.405001478100432, Std = 0.12955252617299393
+ENTROPY_GROUP_A: Mean = 2.9843456625631934, Std = 0.03825236689427253
+ENTROPY_GROUP_B: Mean = 2.2716156662817935, Std = 0.032560051443571325
+ACC: Mean = 0.27467455621301773, Std = 0.003173275190009918
+NMI: Mean = 0.36775733089511287, Std = 0.004154735286285304
+ARI: Mean = 0.061948599079019506, Std = 0.0016926062885535755
+SIL: Mean = -0.005586321611652874, Std = 0.004716759262333086
+
+JOB STATISTICS
+==============
+Job ID: 4931782
+Cluster: snellius
+User/Group: scur1047/scur1047
+State: RUNNING
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 01:24:00 core-walltime
+Job Wall-clock time: 00:09:20
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

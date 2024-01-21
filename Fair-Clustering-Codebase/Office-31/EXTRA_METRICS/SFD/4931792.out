@@ -1,0 +1,123 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius+and+Lisa#SoftwarepolicySnelliusandLisa-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+(1293, 2048), (1293,), (1293,)
+Clustering Algorithm: SFD
+Dataset: Office-31
+Number of Clusters: 31
+Number of Data Points: 1293
+Number of Sensitive Features: 2
+Number of Features: 2048
+# of clusters -> 31
+Trial 1 with random state 150
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0]
+[zoopt] value: 0.1518194861092996
+Trial 2 with random state 1
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1]
+[zoopt] value: 0.1433850702143385
+Trial 3 with random state 4200
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1]
+[zoopt] value: 0.1518194861092996
+Trial 4 with random state 424242
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1]
+[zoopt] value: 0.1518194861092996
+Trial 5 with random state 1947
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0]
+[zoopt] value: 0.1518194861092996
+Trial 6 with random state 355
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0]
+[zoopt] value: 0.1518194861092996
+Trial 7 with random state 256
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0]
+[zoopt] value: 0.1518194861092996
+Trial 8 with random state 7500
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1]
+[zoopt] value: 0.1518194861092996
+Trial 9 with random state 99999
+[zoopt] expected remaining running time: 00:00:43
+[zoopt] x: [0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1]
+[zoopt] value: 0.1518194861092996
+Trial 10 with random state 18
+[zoopt] expected remaining running time: 00:00:44
+[zoopt] x: [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1]
+[zoopt] value: 0.22122267975926513
+
+Pre-Attack Results for Office-31 and SFD
+=========================================
+BALANCE: Mean = 0.5464020334216646, Std = 0.024671081590824626
+MIN_CLUSTER_RATIO: Mean = 0.26875, Std = 0.015309310892394862
+CLUSTER_DIST_L1: Mean = 0.1699399495588734, Std = 0.008068401947848303
+CLUSTER_DIST_KL: Mean = 0.08179351688798214, Std = 0.005546758369647781
+SILHOUETTE_DIFF: Mean = -0.006265830767007508, Std = 0.0006338337857288114
+ENTROPY: Mean = 10.089681478164133, Std = 0.02488906398706166
+ENTROPY_GROUP_A: Mean = 3.3625786790170684, Std = 0.001579898023982705
+ENTROPY_GROUP_B: Mean = 3.352667850064015, Std = 0.00481579084187976
+ACC: Mean = 0.8407216494845361, Std = 0.0037878707362626334
+NMI: Mean = 0.8875398288008561, Std = 0.0033989660097820656
+ARI: Mean = 0.7519489881690417, Std = 0.008686948909874119
+SIL: Mean = 0.17180893174277195, Std = 0.0018422646311248585
+
+Post-Attack Results for Office-31 and SFD
+=========================================
+BALANCE: Mean = 0.15791636388480004, Std = 0.021251408127956783
+MIN_CLUSTER_RATIO: Mean = 0.06525735294117647, Std = 0.009560590899960178
+CLUSTER_DIST_L1: Mean = 0.18027478285748053, Std = 0.005672076841114851
+CLUSTER_DIST_KL: Mean = 0.10041384369263666, Std = 0.004884727381533284
+SILHOUETTE_DIFF: Mean = -0.008189524456828554, Std = 0.002120395911026201
+ENTROPY: Mean = 9.782847938930072, Std = 0.0698614997129977
+ENTROPY_GROUP_A: Mean = 3.2915895666418975, Std = 0.014125309936891586
+ENTROPY_GROUP_B: Mean = 3.3574194255239136, Std = 0.007765706361520202
+ACC: Mean = 0.7648625429553265, Std = 0.0176694217423415
+NMI: Mean = 0.8613771617476053, Std = 0.009333701502646964
+ARI: Mean = 0.6867709657310723, Std = 0.02190783933839964
+SIL: Mean = 0.1578167533014183, Std = 0.005399342127424248
+
+Random Attack Results for Office-31 and SFD
+=========================================
+BALANCE: Mean = 0.3065286074636072, Std = 0.1218821626610942
+MIN_CLUSTER_RATIO: Mean = 0.13825938065411753, Std = 0.0652434258492462
+CLUSTER_DIST_L1: Mean = 0.17798067563743342, Std = 0.011070488581398285
+CLUSTER_DIST_KL: Mean = 0.09762956001544035, Std = 0.00818317500012961
+SILHOUETTE_DIFF: Mean = -0.00755479459254188, Std = 0.0022827262805166387
+ENTROPY: Mean = 9.861961591587928, Std = 0.08709761082158628
+ENTROPY_GROUP_A: Mean = 3.304706635222428, Std = 0.023852110842852676
+ENTROPY_GROUP_B: Mean = 3.3537033380830614, Std = 0.009875514978718124
+ACC: Mean = 0.7641752577319587, Std = 0.020472167901839367
+NMI: Mean = 0.8572525724408189, Std = 0.006725934205133545
+ARI: Mean = 0.6828488136427934, Std = 0.018852218504150167
+SIL: Mean = 0.1594546983845956, Std = 0.004035139324420479
+
+JOB STATISTICS
+==============
+Job ID: 4931792
+Cluster: snellius
+User/Group: scur1047/scur1047
+State: RUNNING
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 01:39:54 core-walltime
+Job Wall-clock time: 00:11:06
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

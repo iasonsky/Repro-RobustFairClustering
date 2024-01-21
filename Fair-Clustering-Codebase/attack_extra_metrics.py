@@ -214,7 +214,9 @@ def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
 
 def print_results(result_dict, result_name, name, cl_algo):
     '''Prints and saves the results in a pickle file.'''
+    print("")
     print(f'{result_name} Results for {name} and {cl_algo}')
+    print("=========================================")
     for metric in result_dict.keys():
         mean_val = np.mean(result_dict[metric])
         std_val = np.std(result_dict[metric])

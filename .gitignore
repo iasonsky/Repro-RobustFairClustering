@@ -3,6 +3,7 @@
 *.pkl
 *.txt
 !Fair-Clustering-Codebase/plot_data/**/*.pkl
+!Fair-Clustering-Codebase/extra_metrics_results/**/*.pkl
 !Fair-Clustering-Codebase/fair_clustering/dataset/MTFL/**/*.jpg
 Fair-Clustering-Codebase/fair_clustering/dataset/MTFL/
 Fair-Clustering-Codebase/fair_clustering/dataset/MTFL.zip

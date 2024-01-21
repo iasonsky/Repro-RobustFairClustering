@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#SBATCH --partition=gpu
+#SBATCH --partition=gpu_mig
 #SBATCH --gpus=1
-#SBATCH --job-name=SFD_DIGITS
+#SBATCH --job-name=SFD_Office-31
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --time=02:00:00
-#SBATCH --output=DIGITS/SFD/%A.out
+#SBATCH --time=00:50:00
+#SBATCH --output=Office-31/EXTRA_METRICS/SFD/%A.out
 
 module purge
 module load 2022
@@ -16,4 +16,4 @@ module load Anaconda3/2022.05
 source activate FACT2024 
 
 # Run your code
-srun python -u attack_for_plots.py --dataset DIGITS --cl_algo SFD
+srun python -u attack_extra_metrics.py --dataset Office-31 --cl_algo SFD
