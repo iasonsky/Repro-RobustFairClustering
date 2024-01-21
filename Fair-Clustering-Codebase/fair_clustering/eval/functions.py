@@ -3,7 +3,7 @@ import numpy as np
 import scipy
 import pandas as pd
 from typing import List
-from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
+from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score, silhouette_score
 from scipy.optimize import linear_sum_assignment as linear_assignment
 
 
@@ -14,6 +14,8 @@ def nmi(y_true, y_pred):
 def ari(y_true, y_pred):
     return adjusted_rand_score(y_true, y_pred)
 
+def silhouette(X, y_pred):
+    return silhouette_score(X, y_pred, metric='euclidean')
 
 def acc(y_true, y_pred):
     y_true, y_pred = pd.Series(list(y_true)), pd.Series(list(y_pred))
