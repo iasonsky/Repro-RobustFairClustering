@@ -12,7 +12,7 @@ import warnings
 warnings.filterwarnings('ignore')
 import numpy as np
 from fair_clustering.eval.functions import * #[TO-DO] Write base class and derive metrics from it, temporary eval code
-from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS
+from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, MTFL
 from fair_clustering.algorithm import FairSpectral, FairKCenter, FairletDecomposition, ScalableFairletDecomposition
 import argparse
 import pickle
@@ -40,6 +40,9 @@ elif name == 'Yale':
   X, y, s = dataset.data
 elif name == 'DIGITS':
   X, y, s = np.load('X_' + name + '.npy'), np.load('y_' + name + '.npy'), np.load('s_' + name + '.npy')
+elif name == 'MTFL':
+  dataset = MTFL()
+  X, y, s = dataset.data
 else:
   print('Invalid dataset name')
   sys.exit()
@@ -218,6 +221,9 @@ def print_results(result_dict, result_name, name, cl_algo):
     print(f'{result_name} Results for {name} and {cl_algo}')
     print("=========================================")
     for metric in result_dict.keys():
+        if "N/A" in result_dict[metric]:
+            print(f'{metric}: {result_dict[metric]}')
+            continue
         mean_val = np.mean(result_dict[metric])
         std_val = np.std(result_dict[metric])
         print(f'{metric}: Mean = {mean_val}, Std = {std_val}')
@@ -278,6 +284,10 @@ print(f"# of clusters -> {n_clusters}")
 seeds = [150, 1, 4200, 424242, 1947, 355, 256, 7500, 99999, 18]
 n_trials = len(seeds)
 
+# Check if the indices exist
+if not os.path.exists('U_idx_' + name + '.npy') or not os.path.exists('V_idx_' + name + '.npy'):
+  print('The indices do not exist.') #TODO: We need to generate the indices for the dataset
+  sys.exit()
 U_idx_full, V_idx_full = np.load('U_idx_' + name + '.npy').tolist(), np.load('V_idx_' + name + '.npy').tolist()
 
 # Calculate the 15% index
