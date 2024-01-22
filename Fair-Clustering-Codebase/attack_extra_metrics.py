@@ -127,14 +127,14 @@ def process_solution(sol):
   min_cluster_ratio_val = min_cluster_ratio(group_a, group_b, labels_sfd_eval)
   cluster_dist_l1_val = cluster_dist_l1(group_a, group_b, labels_sfd_eval)
   cluster_dist_kl_val = cluster_dist_kl(group_a, group_b, labels_sfd_eval)
-  sil_diff = silhouette_diff(group_a, group_b, X_eval, labels_sfd_eval)
+  sil_diff = silhouette_diff(group_a, group_b, X_eval, labels_sfd_eval) if np.unique(labels_sfd_eval).shape[0] > 1 else "N/A"
   ent = entropy(labels_sfd_eval, s_eval)
   ent_a = cluster_dist_entropy(group_a, labels_sfd_eval)
   ent_b = cluster_dist_entropy(group_b, labels_sfd_eval)
   accuracy = acc(y_eval, labels_sfd_eval)
   nmi_score = nmi(y_eval, labels_sfd_eval)
   ari_score = ari(y_eval, labels_sfd_eval)
-  sil_score = silhouette(X_eval, labels_sfd_eval)
+  sil_score = silhouette(X_eval, labels_sfd_eval) if np.unique(labels_sfd_eval).shape[0] > 1 else "N/A"
 
   return (bal, min_cluster_ratio_val, cluster_dist_l1_val, cluster_dist_kl_val, sil_diff, ent, ent_a, ent_b, accuracy, nmi_score, ari_score, sil_score)
 
@@ -161,14 +161,14 @@ def conduct_random_attack(size_sol):
   min_cluster_ratio_val = min_cluster_ratio(group_a, group_b, labels_sfd_eval)
   cluster_dist_l1_val = cluster_dist_l1(group_a, group_b, labels_sfd_eval)
   cluster_dist_kl_val = cluster_dist_kl(group_a, group_b, labels_sfd_eval)
-  sil_diff = silhouette_diff(group_a, group_b, X_eval, labels_sfd_eval)
+  sil_diff = silhouette_diff(group_a, group_b, X_eval, labels_sfd_eval) if np.unique(labels_sfd_eval).shape[0] > 1 else "N/A"
   ent = entropy(labels_sfd_eval, s_eval)
   ent_a = cluster_dist_entropy(group_a, labels_sfd_eval)
   ent_b = cluster_dist_entropy(group_b, labels_sfd_eval)
   accuracy = acc(y_eval, labels_sfd_eval)
   nmi_score = nmi(y_eval, labels_sfd_eval)
   ari_score = ari(y_eval, labels_sfd_eval)
-  sil_score = silhouette(X_eval, labels_sfd_eval)
+  sil_score = silhouette(X_eval, labels_sfd_eval) if np.unique(labels_sfd_eval).shape[0] > 1 else "N/A"
 
   return (bal, min_cluster_ratio_val, cluster_dist_l1_val, cluster_dist_kl_val, sil_diff, ent, ent_a, ent_b, accuracy, nmi_score, ari_score, sil_score)
 
@@ -306,20 +306,21 @@ for trial_idx in range(n_trials):
   y_test = np.array([y[idx] for idx in V_idx])
   group_a = (s_test == 0)
   group_b = (s_test == 1)
-
+  silhouette_diff_score = silhouette_diff(group_a, group_b, X_test, labels_test) if np.unique(labels_test).shape[0] > 1 else "N/A"
+  sil = silhouette(X_test, labels_test) if np.unique(labels_test).shape[0] > 1 else "N/A"
   # Store pre-attack results
   pre_attack_res['BALANCE'].append(balance(labels_test, X_test, s_test))
   pre_attack_res['MIN_CLUSTER_RATIO'].append(min_cluster_ratio(group_a, group_b, labels_test))
   pre_attack_res['CLUSTER_DIST_L1'].append(cluster_dist_l1(group_a, group_b, labels_test))
   pre_attack_res['CLUSTER_DIST_KL'].append(cluster_dist_kl(group_a, group_b, labels_test))
-  pre_attack_res['SILHOUETTE_DIFF'].append(silhouette_diff(group_a, group_b, X_test, labels_test))
+  pre_attack_res['SILHOUETTE_DIFF'].append(silhouette_diff_score)
   pre_attack_res['ENTROPY'].append(entropy(labels_test, s_test))
   pre_attack_res['ENTROPY_GROUP_A'].append(cluster_dist_entropy(group_a, labels_test))
   pre_attack_res['ENTROPY_GROUP_B'].append(cluster_dist_entropy(group_b, labels_test))
   pre_attack_res['ACC'].append(acc(y_test, labels_test))
   pre_attack_res['NMI'].append(nmi(y_test, labels_test))
   pre_attack_res['ARI'].append(ari(y_test, labels_test))
-  pre_attack_res['SIL'].append(silhouette(X_test, labels_test))
+  pre_attack_res['SIL'].append(sil)
 
 
   dim_size = len(U_idx)
