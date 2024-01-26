@@ -250,7 +250,7 @@ class FairKCenter(FairClustering):
     def __init__(self, n_clusters=2, delta=0.1, tol=1e-3, random_state=None, solver_name='CPLEX'):
         """Initialize the KFC Fair K-Center method."""
         if solver_name == 'CPLEX':
-            self.solver = pulp.CPLEX_PY(msg=False)
+            self.solver = pulp.CPLEX_PY(msg=0)
         elif solver_name == 'GUROBI':
             self.solver = pulp.GUROBI_CMD()
         else:

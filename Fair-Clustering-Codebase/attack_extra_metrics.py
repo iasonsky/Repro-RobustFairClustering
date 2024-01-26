@@ -12,7 +12,7 @@ import warnings
 warnings.filterwarnings('ignore')
 import numpy as np
 from fair_clustering.eval.functions import * #[TO-DO] Write base class and derive metrics from it, temporary eval code
-from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, MTFL_data, ExtendedYaleB_alter
+from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, MTFL, ExtendedYaleB_alter
 from fair_clustering.algorithm import FairSpectral, FairKCenter, FairletDecomposition, ScalableFairletDecomposition
 import argparse
 import pickle
@@ -21,7 +21,7 @@ from holisticai.bias.metrics import cluster_balance, cluster_dist_entropy, clust
 
 # Set parameters related to dataset and get dataset
 parser = argparse.ArgumentParser(description='Fair Clustering')
-parser.add_argument('--dataset', type=str, default='Office-31', metavar='N',
+parser.add_argument('--dataset', type=str, default='Yale_alter', metavar='N',
                     help='dataset to use')
 parser.add_argument('--cl_algo', type=str, default='SFD', metavar='N',
                     help='clustering algorithm to use')
@@ -38,13 +38,13 @@ elif name == 'MNIST_USPS':
 elif name == 'Yale':
   dataset = ExtendedYaleB(download=True, resize=True)
   X, y, s = dataset.data
+elif name == 'Yale_alter':
+  dataset = ExtendedYaleB_alter(resize=True)
+  X, y, s = dataset.data
 elif name == 'DIGITS':
   X, y, s = np.load('X_' + name + '.npy'), np.load('y_' + name + '.npy'), np.load('s_' + name + '.npy')
 elif name == 'MTFL':
-  dataset = MTFL_data.MTFL()
-  X, y, s = dataset.data
-elif name == 'Yale_alter':
-  dataset = ExtendedYaleB_alter()
+  dataset = MTFL()
   X, y, s = dataset.data
 else:
   print('Invalid dataset name')
@@ -199,6 +199,8 @@ def calculate_budget(name, cl_algo):
       return 20
     elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
       return 20
+  elif name == 'Yale_alter':
+    return 15
   elif name == 'DIGITS':
     if cl_algo == 'FSC':
       return 15
@@ -206,8 +208,6 @@ def calculate_budget(name, cl_algo):
       return 25
     elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
       return 20
-  elif name == "MTFL":
-     return 50 # I tried 50 arbitrarly for now, let's wait for author's response
 
 def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
   '''Selects the clustering algorithm based on the dataset and the clustering algorithm name'''
@@ -272,8 +272,8 @@ def create_objective(name, cl_algo, dim_size, attack_balance, attack_entropy):
             return Objective(attack_entropy, dim)
     elif name == 'Yale':
         return Objective(attack_entropy, dim)
-    elif name == 'MTFL':
-        return Objective(attack_balance, dim)
+    elif name == 'Yale_alter':
+        return Objective(attack_entropy, dim)
     else:
         raise ValueError(f"Unrecognized dataset or clustering algorithm: {name}, {cl_algo}")
 
