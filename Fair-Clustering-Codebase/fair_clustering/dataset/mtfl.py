@@ -39,8 +39,9 @@ class MTFL(ImageDataset):
         X = [np.array(Image.open(f"{dataset_dir}/{p}").resize((42,48))) for p in all_img_paths]
         X = np.asarray(X)
         X = np.reshape(X, (X.shape[0], -1))
-        y = balanced_data.drop(['glasses', 'image_path'], axis=1).values
+        y = balanced_data.drop(['glasses', 'image_path', 'x1', 'x2', 'x3', 'x4', 'x5', 'y1', 'y2', 'y3', 'y4', 'y5'], axis=1).values
         y = np.asarray(y)
+        y = y.astype(int)
         s = balanced_data['glasses'].values
         s = np.asarray(s)
 
