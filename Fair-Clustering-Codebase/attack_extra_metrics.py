@@ -44,7 +44,7 @@ elif name == 'MTFL':
   dataset = MTFL_data.MTFL()
   X, y, s = dataset.data
 elif name == 'Yale_alter':
-  dataset = ExtendedYaleB_alter()
+  dataset = ExtendedYaleB_alter(resize=True)
   X, y, s = dataset.data
 else:
   print('Invalid dataset name')
@@ -208,6 +208,8 @@ def calculate_budget(name, cl_algo):
       return 20
   elif name == "MTFL":
      return 50 # I tried 50 arbitrarly for now, let's wait for author's response
+  elif name == "Yale_alter":
+     return 20 # I tried 20 arbitrarly for now, let's wait for author's response
 
 def select_clustering_algorithm(name, cl_algo, n_clusters, random_state):
   '''Selects the clustering algorithm based on the dataset and the clustering algorithm name'''
@@ -274,6 +276,8 @@ def create_objective(name, cl_algo, dim_size, attack_balance, attack_entropy):
         return Objective(attack_entropy, dim)
     elif name == 'MTFL':
         return Objective(attack_balance, dim)
+    elif name == "Yale_alter":
+        return Objective(attack_entropy, dim)
     else:
         raise ValueError(f"Unrecognized dataset or clustering algorithm: {name}, {cl_algo}")
 
