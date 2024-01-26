@@ -3,7 +3,8 @@ from fair_clustering.dataset.mnist_data import MNISTData, MNIST_USPS
 from fair_clustering.dataset.extended_yaleB import ExtendedYaleB
 from fair_clustering.dataset.office31 import Office31
 from fair_clustering.dataset.mnist_usps import MNISTUSPS
-from fair_clustering.dataset.mtfl import MTFL
+from fair_clustering.dataset.MTFL_data import MTFL
+from fair_clustering.dataset.extended_yaleB_alter import ExtendedYaleB_alter
 
 __all__ = [
     "Dataset",
@@ -12,4 +13,5 @@ __all__ = [
     "MNISTUSPS",
     "MNIST_USPS",
     "MTFL",
+    "ExtendedYaleB_alter",
 ]
