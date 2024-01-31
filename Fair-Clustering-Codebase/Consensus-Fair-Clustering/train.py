@@ -66,7 +66,8 @@ idx_train = torch.LongTensor(idx_train)
 
 adj_label = get_A_r(adj, args.order)
 
-adj, adj_label, features, idx_train = adj.cuda(), adj_label.cuda(), features.cuda(), idx_train.cuda()
+if args.cuda:
+    adj, adj_label, features, idx_train = adj.cuda(), adj_label.cuda(), features.cuda(), idx_train.cuda()
 
 
 s = np.load('datafiles/' + args.data + '_s.npy')
@@ -82,7 +83,10 @@ L = np.load('precomputed_labels/labels_' + args.data + '.npy')
 Y = np.zeros((len(s), args.k))
 for i,l in enumerate(L):
     Y[i,l] = 1.0
-Y = torch.FloatTensor(Y).float().cuda()
+if args.cuda:
+    Y = torch.FloatTensor(Y).float().cuda()
+else:
+    Y = torch.FloatTensor(Y).float()
 
 MSEL = nn.MSELoss(reduction="sum")
 
@@ -93,9 +97,10 @@ model = GMLP(nfeat=features.shape[1],
             dropout=args.dropout,
             )
 
-
-CL = ClusteringLayer(cluster_number=args.k, hidden_dimension=args.hidden).cuda()
-
+if args.cuda:
+    CL = ClusteringLayer(cluster_number=args.k, hidden_dimension=args.hidden).cuda()
+else:
+    CL = ClusteringLayer(cluster_number=args.k, hidden_dimension=args.hidden)
 optimizer = optim.Adam(model.get_parameters() + CL.get_parameters(),
                        lr=args.lr, weight_decay=args.weight_decay)
 
@@ -123,7 +128,10 @@ def get_batch(batch_size):
     """
     get a batch of feature & adjacency matrix
     """
-    rand_indx = torch.tensor(np.random.choice(np.arange(adj_label.shape[0]), batch_size)).type(torch.long).cuda()
+    if args.cuda:
+        rand_indx = torch.tensor(np.random.choice(np.arange(adj_label.shape[0]), batch_size)).type(torch.long).cuda()
+    else:
+        rand_indx = torch.tensor(np.random.choice(np.arange(adj_label.shape[0]), batch_size)).type(torch.long)
     rand_indx[0:len(idx_train)] = idx_train
     features_batch = features[rand_indx]
     adj_label_batch = adj_label[rand_indx,:][:,rand_indx]
@@ -169,7 +177,7 @@ def test():
     return (bal, ent, NMI, ACC)
 
 
-for epoch in tqdm(range(args.epochs)):
+for epoch in range(args.epochs): #tqdm(range(args.epochs)):
     train()
 
 torch.save(model, 'saved_models/' + args.data + '-GMLP.pt')
