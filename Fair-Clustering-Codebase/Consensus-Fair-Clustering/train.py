@@ -48,12 +48,19 @@ parser.add_argument('--tau', type=float, default=1.0,
                     help='temperature for Ncontrast loss')
 parser.add_argument('--k', type=int, default=10,
                     help='Number of clusters')
+parser.add_argument('--seed', type=int, default=42,
+                    help='set seed (integer)')
 
 
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
 
-
+seed = args.seed
+random.seed(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+if args.cuda:
+    torch.cuda.manual_seed(seed)
 
 ## get data
 adj, features, labels = np.load('datafiles/' + args.data + '_coassoc.npy'),  np.load('datafiles/' + args.data + '_X.npy'),  np.load('datafiles/' + args.data + '_y.npy')

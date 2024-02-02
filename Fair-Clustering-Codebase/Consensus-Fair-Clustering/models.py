@@ -35,7 +35,7 @@ def get_feature_dis(x):
     x_dis(i,j):   item means the similarity between x(i) and x(j).
     """
     x_dis = x@x.T
-    mask = torch.eye(x_dis.shape[0]).cuda()
+    mask = torch.eye(x_dis.shape[0])#.cuda()
     x_sum = torch.sum(x**2, 1).reshape(-1, 1)
     x_sum = torch.sqrt(x_sum).reshape(-1, 1)
     x_sum = x_sum @ x_sum.T
