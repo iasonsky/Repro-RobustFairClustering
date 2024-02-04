@@ -21,7 +21,7 @@ from holisticai.bias.metrics import cluster_balance, cluster_dist_entropy, clust
 
 # Set parameters related to dataset and get dataset
 parser = argparse.ArgumentParser(description='Fair Clustering')
-parser.add_argument('--dataset', type=str, default='Yale_alter', metavar='N',
+parser.add_argument('--dataset', type=str, default='Office-31', metavar='N',
                     help='dataset to use')
 parser.add_argument('--cl_algo', type=str, default='SFD', metavar='N',
                     help='clustering algorithm to use')
