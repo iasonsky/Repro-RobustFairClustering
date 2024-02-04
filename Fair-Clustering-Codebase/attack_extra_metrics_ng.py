@@ -460,7 +460,7 @@ for trial_idx in range(n_trials):
   optimizer = ng.optimizers.NGOpt(parametrization=instrumentation, budget=20) 
 
   # Run the optimizer
-  recommendation = optimizer.minimize(attack_balance_ng)
+  recommendation = optimizer.minimize(combined_attack) # You can choose between [attack_balance, attack_entropy, attack_min_cluster_ratio, combined_attack]
   # Extract the solution
   flipped_labels = recommendation.value[0][0]
   flipped_labels_list = list(flipped_labels)

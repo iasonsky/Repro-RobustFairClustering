@@ -1,0 +1,11 @@
+python-mnist
+gdown
+kmedoids
+pulp
+torch
+scikit-learn==1.2.2
+zoopt
+pyckmeans
+holisticai
+tqdm
+nevergrad
