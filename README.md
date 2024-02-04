@@ -17,16 +17,16 @@ First of all, it might be better to download the required datasets mnist_usps an
   - On snellius, the dataset like mnist_usps should be put in "home5/scur1047/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps".
   - On local computer, the file path is like "fair_clustering/raw_data/mnist_usps" with a Linux system.
   - The links to each dataset are:
-    1. office31: put them in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/office31"
+    1. office31: put them in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/office31". The links are: 
       - "domain_adaptation_features_20110616.tar.gz": "https://drive.google.com/u/0/uc?id=0B4IapRTv9pJ1WTVSd2FIcW4wRTA&export=download",
       - "office31_resnet50.zip": "https://wjdcloud.blob.core.windows.net/dataset/office31_resnet50.zip"
-    2. mnist_usps: put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps"
+    2. mnist_usps: put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps". The links are: 
          "https://mega.nz/folder/oHJ2UCoK#r62nRoZ0gH8NXIcgmyWReA"
-    3. Extended YaleB (cropped): put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/extended_yaleB"
+    3. Extended YaleB (cropped): put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/extended_yaleB". The links are: 
          "https://academictorrents.com/details/aad8bf8e6ee5d8a3bf46c7ab5adfacdd8ad36247"
-    4. Extended YaleB (uncropped): put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/extended_yaleB_alter"
+    4. Extended YaleB (uncropped): put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/extended_yaleB_alter". The links are: 
          "https://drive.google.com/file/d/1NSzt-Ld_HMrQKw_zrplpZlLbR0EaUVcJ/view?usp=sharing"
-    5. MTFL: put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mtfl"
+    5. MTFL: put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mtfl". The links are: 
          "https://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip"
         
 - For reproducing the attack section of the paper, please follow the guidance and code in the branch main of this github project.
