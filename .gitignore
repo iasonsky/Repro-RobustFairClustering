@@ -10,3 +10,4 @@
 !Fair-Clustering-Codebase/fair_clustering/dataset/MTFL/**/*.jpg
 Fair-Clustering-Codebase/fair_clustering/dataset/MTFL/
 Fair-Clustering-Codebase/fair_clustering/dataset/MTFL.zip
+!requirements.txt
