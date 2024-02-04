@@ -63,8 +63,10 @@ python attack_extra_metrics_ng_grid.py --dataset_name <DATASET_NAME> --cl_algo <
 
 Finally to get the results for the new `combined_attack` or `attack_min_cluster_ratio`
 ```
-python attack_extra_metrics_ng.py --dataset_name <DATASET_NAME> --cl_algo <CLUSTERING_ALGORITHM>
+python attack_extra_metrics_ng.py --dataset_name <DATASET_NAME> --cl_algo <CLUSTERING_ALGORITHM> --attack combined
+python attack_extra_metrics_ng.py --dataset_name <DATASET_NAME> --cl_algo <CLUSTERING_ALGORITHM> --attack min_cluster_ratio
 ```
+
 Note: We have only run a small grid search and the provided best `combined_attack` configuration is for Office-31 and SFD. 
 
 

@@ -26,8 +26,11 @@ parser.add_argument('--dataset', type=str, default='Office-31', metavar='N',
                     help='dataset to use')
 parser.add_argument('--cl_algo', type=str, default='SFD', metavar='N',
                     help='clustering algorithm to use')
+parser.add_argument('--attack', type=str, default='combined', metavar='N',
+                    help='attack metric to use')
 name = parser.parse_args().dataset
 cl_algo = parser.parse_args().cl_algo
+attack = parser.parse_args().attack
 
 #Choose between Office-31, MNIST_USPS, Yale, or DIGITS
 if name == 'Office-31':
@@ -56,6 +59,9 @@ if cl_algo != 'FSC' and cl_algo != 'SFD' and cl_algo != 'KFC':
   print('Invalid clustering algorithm name')
   sys.exit()
 
+if attack not in ['balance', 'entropy', 'min_cluster_ratio', 'combined']:
+  print('Invalid attack metric')
+  sys.exit()
 
 # Fairness Attack
 def attack_balance(solution):
@@ -392,6 +398,17 @@ def create_objective(name, cl_algo, dim_size, attack_balance, attack_entropy):
     else:
         raise ValueError(f"Unrecognized dataset or clustering algorithm: {name}, {cl_algo}")
 
+def recommendation_result(attack):
+   '''Returns the recommendation based on the attack metric'''
+   if attack == 'balance':
+      return optimizer.minimize(attack_balance)
+   elif attack == 'entropy':
+      return optimizer.minimize(attack_entropy)
+   elif attack == 'min_cluster_ratio':
+      return optimizer.minimize(attack_min_cluster_ratio)
+   elif attack == 'combined':
+      return optimizer.minimize(combined_attack)
+
 # Main code
 n_clusters = len(np.unique(y))
 print(f"{X.shape}, {y.shape}, {s.shape}")
@@ -460,7 +477,8 @@ for trial_idx in range(n_trials):
   optimizer = ng.optimizers.NGOpt(parametrization=instrumentation, budget=20) 
 
   # Run the optimizer
-  recommendation = optimizer.minimize(combined_attack) # You can choose between [attack_balance, attack_entropy, attack_min_cluster_ratio, combined_attack]
+  # recommendation = optimizer.minimize(combined_attack) # You can choose between [attack_balance, attack_entropy, attack_min_cluster_ratio, combined_attack]
+  recommendation = recommendation_result(attack)
   # Extract the solution
   flipped_labels = recommendation.value[0][0]
   flipped_labels_list = list(flipped_labels)
