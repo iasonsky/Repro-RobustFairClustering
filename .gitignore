@@ -4,7 +4,7 @@
 *.txt
 /data/
 fair_clustering/raw_data/
-Results.zip
+*.zip
 !Fair-Clustering-Codebase/plot_data/**/*.pkl
 !Fair-Clustering-Codebase/extra_metrics_results/**/*.pkl
 !Fair-Clustering-Codebase/fair_clustering/dataset/MTFL/**/*.jpg

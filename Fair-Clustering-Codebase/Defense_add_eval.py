@@ -39,7 +39,7 @@ warnings.filterwarnings('ignore')
 
 from fair_clustering.eval.functions import * #[TO-DO] Write base class and derive metrics from it, temporary eval code
 
-from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, ExtendedYaleB_alter
+from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, ExtendedYaleB_alter, MTFL
 from fair_clustering.algorithm import FairSpectral, FairKCenter, FairletDecomposition, ScalableFairletDecomposition
 from holisticai.bias.metrics import cluster_balance, cluster_dist_entropy, cluster_dist_kl, cluster_dist_l1, silhouette_diff, min_cluster_ratio
 
@@ -48,7 +48,7 @@ import matplotlib.pyplot as plt
 
 # Set parameters related to dataset and get dataset
 
-name = 'Yale_alter' #Choose between Office-31, MNIST_USPS, Yale, or DIGITS
+name = 'MTFL' #Choose between Office-31, MNIST_USPS, Yale, or DIGITS
 
 if name == 'Office-31':
   dataset = Office31(exclude_domain='amazon', use_feature=True)
@@ -65,6 +65,9 @@ elif name == 'Yale_alter':
   print(f"y:", np.unique(y))
 elif name == 'DIGITS':
   X, y, s = np.load('X_' + name + '.npy'), np.load('y_' + name + '.npy'), np.load('s_' + name + '.npy')
+elif name == 'MTFL':
+  dataset = MTFL()
+  X, y, s = dataset.data
 
 print(X.shape, y.shape, s.shape)
 print("unique y_in:", np.unique(y))
@@ -168,6 +171,10 @@ def ConsensusFairClusteringHelper(name, X_in, s_in, y_in, save, order=1, lr=0.01
     alpha = 10.0 
     order = 2
     num_hidden=36
+  if name == 'MTFL':
+    beta = 10.0
+    alpha = 50.0
+    order = 2
 
 
   ckm = CKmeans(k=k, n_rep=100, p_samp=0.5, p_feat=0.5, random_state=42)
@@ -200,8 +207,8 @@ def ConsensusFairClusteringHelper(name, X_in, s_in, y_in, save, order=1, lr=0.01
     Y[i,l] = 1.0
   Y = torch.FloatTensor(Y).float().cuda()
   MSEL = nn.MSELoss(reduction="sum")
-
-  torch.manual_seed(46)
+  #
+  torch.manual_seed(42)
   torch.use_deterministic_algorithms(True)
   model = GMLP(nfeat=features.shape[1],
               nhid=num_hidden,
@@ -209,7 +216,7 @@ def ConsensusFairClusteringHelper(name, X_in, s_in, y_in, save, order=1, lr=0.01
               dropout=dropout,
               )
 
-  torch.manual_seed(46)
+  torch.manual_seed(42)
   torch.use_deterministic_algorithms(True)
   CL = ClusteringLayer(cluster_number=k, hidden_dimension=num_hidden).cuda()
   
@@ -234,7 +241,7 @@ def ConsensusFairClusteringHelper(name, X_in, s_in, y_in, save, order=1, lr=0.01
 
 
 def ConsensusFairClustering(name, X_in, s_in, y_in, save):
-  name_bal = {'Office-31': 0.5, 'MNIST_USPS': 0.3, 'DIGITS': 0.1, 'Yale': 0.1, 'Yale_alter': 0.1}
+  name_bal = {'Office-31': 0.5, 'MNIST_USPS': 0.3, 'DIGITS': 0.1, 'Yale': 0.1, 'Yale_alter': 0.1, 'MTFL': 0.1}
   while True: #Sometimes the model optimizes for a local minima which is why we can run enough times to get a good representation learnt
     cfc_labels = ConsensusFairClusteringHelper(name, X_in, s_in, y_in, save)
     if balance(cfc_labels, X_in, s_in) >= name_bal[name]: #threshold -> 0.5 for Office-31 and 0.3 (0.4) for MNIST_USPS and 0.1 for DIGITS and 0.1 for Yale
@@ -281,9 +288,9 @@ def attack_balance(solution):
   return bal
 
 
-def process_solution(sol):
-  X_copy, s_copy, y_copy = X.copy(), s.copy(), y.copy()
-  flipped_labels = sol.get_x()
+def attack_entropy(solution):
+  X_copy, s_copy = X.copy(), s.copy()
+  flipped_labels = solution.get_x()
   i = 0
   for idx in U_idx:
     s_copy[idx] = flipped_labels[i]
@@ -294,23 +301,99 @@ def process_solution(sol):
   s_eval = []
   X_eval = []
   labels_sfd_eval = []
-  y_eval = []
   for idx in V_idx:
     s_eval.append(s_copy[idx])
     X_eval.append(X_copy[idx])
     labels_sfd_eval.append(labels_sfd[idx])
-    y_eval.append(y_copy[idx])
   s_eval = np.array(s_eval)
   X_eval = np.array(X_eval)
   labels_sfd_eval = np.array(labels_sfd_eval)
-  y_eval = np.array(y_eval)
 
   bal = balance(labels_sfd_eval, X_eval, s_eval)
   ent = entropy(labels_sfd_eval, s_eval)
-  accuracy = acc(y_eval, labels_sfd_eval)
-  nmi_score = nmi(y_eval, labels_sfd_eval)
 
-  return (bal, ent, accuracy, nmi_score)
+  return ent
+
+
+def attack_min_cluster_ratio(solution):
+  X_copy, s_copy = X.copy(), s.copy()
+  flipped_labels = solution.get_x()
+  i = 0
+  for idx in U_idx:
+    s_copy[idx] = flipped_labels[i]
+    i += 1
+
+  labels_sfd = ConsensusFairClustering(name, X_copy, s_copy, y, save=False)
+
+  s_eval = []
+  X_eval = []
+  labels_sfd_eval = []
+  for idx in V_idx:
+    s_eval.append(s_copy[idx])
+    X_eval.append(X_copy[idx])
+    labels_sfd_eval.append(labels_sfd[idx])
+  s_eval = np.array(s_eval)
+  X_eval = np.array(X_eval)
+  labels_sfd_eval = np.array(labels_sfd_eval)
+
+  group_a = (s_eval == 0)
+  group_b = (s_eval == 1)
+
+  min_cluster_ratio_val = min_cluster_ratio(group_a, group_b, labels_sfd_eval)
+
+  return min_cluster_ratio_val
+
+
+def combined_attack(solution):
+  balance_score = attack_balance(solution)
+  entropy_score = attack_entropy(solution)
+  combined_score = balance_score + 0.2 * entropy_score
+  return combined_score
+
+
+def process_solution(sol):
+    X_copy, s_copy, y_copy = X.copy(), s.copy(), y.copy()
+    flipped_labels = sol.get_x()
+    i = 0
+    for idx in U_idx:
+        s_copy[idx] = flipped_labels[i]
+        i += 1
+
+    labels_sfd = ConsensusFairClustering(name, X_copy, s_copy, y, save=False)
+
+    s_eval = []
+    X_eval = []
+    labels_sfd_eval = []
+    y_eval = []
+    for idx in V_idx:
+        s_eval.append(s_copy[idx])
+        X_eval.append(X_copy[idx])
+        labels_sfd_eval.append(labels_sfd[idx])
+        y_eval.append(y_copy[idx])
+    s_eval = np.array(s_eval)
+    X_eval = np.array(X_eval)
+    labels_sfd_eval = np.array(labels_sfd_eval)
+    y_eval = np.array(y_eval)
+
+    group_a = (s_eval == 0)
+    group_b = (s_eval == 1)
+
+    bal = balance(labels_sfd_eval, X_eval, s_eval)
+    min_cluster_ratio_val = min_cluster_ratio(group_a, group_b, labels_sfd_eval)
+    cluster_dist_l1_val = cluster_dist_l1(group_a, group_b, labels_sfd_eval)
+    cluster_dist_kl_val = cluster_dist_kl(group_a, group_b, labels_sfd_eval)
+    sil_diff = silhouette_diff(group_a, group_b, X_eval, labels_sfd_eval) if np.unique(labels_sfd_eval).shape[
+                                                                                 0] > 1 else "N/A"
+    ent = entropy(labels_sfd_eval, s_eval)
+    ent_a = cluster_dist_entropy(group_a, labels_sfd_eval)
+    ent_b = cluster_dist_entropy(group_b, labels_sfd_eval)
+    accuracy = acc(y_eval, labels_sfd_eval)
+    nmi_score = nmi(y_eval, labels_sfd_eval)
+    ari_score = ari(y_eval, labels_sfd_eval)
+    sil_score = silhouette(X_eval, labels_sfd_eval) if np.unique(labels_sfd_eval).shape[0] > 1 else "N/A"
+
+    return (bal, min_cluster_ratio_val, cluster_dist_l1_val, cluster_dist_kl_val, sil_diff, ent, ent_a, ent_b, accuracy,
+            nmi_score, ari_score, sil_score)
 
 
 n_clusters = len(np.unique(y))
@@ -319,36 +402,12 @@ n_trials = 1
 
 U_idx_full, V_idx_full = np.load('U_idx_' + name + '.npy').tolist(), np.load('V_idx_' + name + '.npy').tolist()
 
-cfc_pre_res = {
-    0 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    1 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    2 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    3 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    4 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    5 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    6 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    7 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    8 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-}
+pre_attack_res = {'BALANCE': [], 'MIN_CLUSTER_RATIO': [], 'CLUSTER_DIST_L1': [], 'CLUSTER_DIST_KL': [], 'SILHOUETTE_DIFF': [],'ENTROPY': [], 'ENTROPY_GROUP_A': [], 'ENTROPY_GROUP_B': [], 'ACC': [], 'NMI': [], 'ARI': [], 'SIL': []}
+post_attack_res = {'BALANCE': [], 'MIN_CLUSTER_RATIO': [], 'CLUSTER_DIST_L1': [], 'CLUSTER_DIST_KL': [], 'SILHOUETTE_DIFF': [],'ENTROPY': [], 'ENTROPY_GROUP_A': [], 'ENTROPY_GROUP_B': [], 'ACC': [], 'NMI': [], 'ARI': [], 'SIL': []}
 
 
-cfc_post_res = {
-    0 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    1 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    2 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    3 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    4 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    5 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    6 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    7 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-    8 : {'BALANCE': [], 'ENTROPY': [], 'ACC': [], 'NMI': []},
-}
-
-for percent, j in enumerate([0, int(0.03*len(U_idx_full)),
-                             int(0.075*len(U_idx_full)), int(0.115*len(U_idx_full)),
-                             int(0.15*len(U_idx_full)), int(0.19*len(U_idx_full)),
-                             int(0.225*len(U_idx_full)), int(0.27*len(U_idx_full)),
-                             int(0.3*len(U_idx_full))]):
+for percent, j in enumerate([
+                             int(0.15*len(U_idx_full))]):
 
   U_idx = U_idx_full[:j]
   V_idx = V_idx_full
@@ -371,24 +430,48 @@ for percent, j in enumerate([0, int(0.03*len(U_idx_full)),
     labels_test = np.array(labels_test)
     y_test = np.array(y_test)
 
-    cfc_pre_res[percent]['BALANCE'].append(balance(labels_test, X_test, s_test))
-    cfc_pre_res[percent]['ENTROPY'].append(entropy(labels_test, s_test))
-    cfc_pre_res[percent]['ACC'].append(acc(y_test, labels_test))
-    cfc_pre_res[percent]['NMI'].append(nmi(y_test, labels_test))
+    group_a = (s_test == 0)
+    group_b = (s_test == 1)
+
+    silhouette_diff_score = silhouette_diff(group_a, group_b, X_test, labels_test) if np.unique(labels_test).shape[
+                                                                                          0] > 1 else "N/A"
+    sil = silhouette(X_test, labels_test) if np.unique(labels_test).shape[0] > 1 else "N/A"
+    # Store pre-attack results
+    pre_attack_res['BALANCE'].append(balance(labels_test, X_test, s_test))
+    pre_attack_res['MIN_CLUSTER_RATIO'].append(min_cluster_ratio(group_a, group_b, labels_test))
+    pre_attack_res['CLUSTER_DIST_L1'].append(cluster_dist_l1(group_a, group_b, labels_test))
+    pre_attack_res['CLUSTER_DIST_KL'].append(cluster_dist_kl(group_a, group_b, labels_test))
+    pre_attack_res['SILHOUETTE_DIFF'].append(silhouette_diff_score)
+    pre_attack_res['ENTROPY'].append(entropy(labels_test, s_test))
+    pre_attack_res['ENTROPY_GROUP_A'].append(cluster_dist_entropy(group_a, labels_test))
+    pre_attack_res['ENTROPY_GROUP_B'].append(cluster_dist_entropy(group_b, labels_test))
+    pre_attack_res['ACC'].append(acc(y_test, labels_test))
+    pre_attack_res['NMI'].append(nmi(y_test, labels_test))
+    pre_attack_res['ARI'].append(ari(y_test, labels_test))
+    pre_attack_res['SIL'].append(sil)
 
     dim_size = len(U_idx)
     dim = Dimension(dim_size, [[0, 1]]*dim_size, [False]*dim_size)
-    obj = Objective(attack_balance, dim)
+    obj = Objective(attack_min_cluster_ratio, dim)
     solution = Opt.min(obj, Parameter(budget=5)) 
 
-    pa_bal, pa_ent, pa_acc, pa_nmi = process_solution(solution)
-
-    cfc_post_res[percent]['BALANCE'].append(pa_bal)
-    cfc_post_res[percent]['ENTROPY'].append(pa_ent)
-    cfc_post_res[percent]['ACC'].append(pa_acc)
-    cfc_post_res[percent]['NMI'].append(pa_nmi)
+    pa_bal, pa_min_cl_rat, pa_dist_l1, pa_dist_kl, pa_sil_diff, pa_ent, pa_ent_a, pa_ent_b, pa_acc, pa_nmi, pa_ari, pa_sil = process_solution(
+        solution)
+    post_attack_res['BALANCE'].append(pa_bal)
+    post_attack_res['MIN_CLUSTER_RATIO'].append(pa_min_cl_rat)
+    post_attack_res['CLUSTER_DIST_L1'].append(pa_dist_l1)
+    post_attack_res['CLUSTER_DIST_KL'].append(pa_dist_kl)
+    post_attack_res['SILHOUETTE_DIFF'].append(pa_sil_diff)
+    post_attack_res['ENTROPY'].append(pa_ent)
+    post_attack_res['ENTROPY_GROUP_A'].append(pa_ent_a)
+    post_attack_res['ENTROPY_GROUP_B'].append(pa_ent_b)
+    post_attack_res['ACC'].append(pa_acc)
+    post_attack_res['NMI'].append(pa_nmi)
+    post_attack_res['ARI'].append(pa_ari)
+    post_attack_res['SIL'].append(pa_sil)
 
 print(f"dataset: ", name)
-print(f"pre-res: ", cfc_pre_res)
-print(f"post-res: ", cfc_post_res)
+print("attack min cluster ratio")
+print(f"pre-res: ", pre_attack_res)
+print(f"post-res: ", post_attack_res)
 

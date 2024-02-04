@@ -7,18 +7,18 @@ from __future__ import print_function
 import subprocess
 
 
-#subprocess.call(['pip', 'install', 'kmedoids'])
-#subprocess.call(['pip', 'install', 'gdown'])
-#subprocess.call(['pip', 'install', 'python-mnist'])
-#subprocess.call(['pip', 'install', 'pulp'])
-#subprocess.call(['pip', 'install', 'zoopt'])
-#subprocess.call(['pip', 'install', 'pyckmeans'])
-#subprocess.call(['pip', 'install', 'scikit-learn==1.2.2', '--upgrade'])
+subprocess.call(['pip', 'install', 'kmedoids'])
+subprocess.call(['pip', 'install', 'gdown'])
+subprocess.call(['pip', 'install', 'python-mnist'])
+subprocess.call(['pip', 'install', 'pulp'])
+subprocess.call(['pip', 'install', 'zoopt'])
+subprocess.call(['pip', 'install', 'pyckmeans'])
+subprocess.call(['pip', 'install', 'scikit-learn==1.2.2', '--upgrade'])
 
 
 import os
 
-os.environ['CUBLAS_WORKSPACE_CSONFIG'] = ':16:8' #:4096:8
+os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':16:8' #:4096:8
 
 
 import sys
@@ -41,6 +41,7 @@ from fair_clustering.eval.functions import * #[TO-DO] Write base class and deriv
 
 from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, ExtendedYaleB_alter
 from fair_clustering.algorithm import FairSpectral, FairKCenter, FairletDecomposition, ScalableFairletDecomposition
+from holisticai.bias.metrics import cluster_balance, cluster_dist_entropy, cluster_dist_kl, cluster_dist_l1, silhouette_diff, min_cluster_ratio
 
 import matplotlib.pyplot as plt
 
@@ -236,7 +237,7 @@ def ConsensusFairClustering(name, X_in, s_in, y_in, save):
   while True: #Sometimes the model optimizes for a local minima which is why we can run enough times to get a good representation learnt
     cfc_labels = ConsensusFairClusteringHelper(name, X_in, s_in, y_in, save)
     # threshold -> 0.5 for Office-31 and 0.3 (0.4) for MNIST_USPS and 0.1 for DIGITS and 0.1 for Yale
-    if balance(cfc_labels, X_in, s_in) >= name_bal[name] and entropy(cfc_labels, X_in, s_in) >= name_ent[name]:
+    if balance(cfc_labels, X_in, s_in) >= name_bal[name] and entropy(cfc_labels, s_in) >= name_ent[name]:
       break
   print("\nCompleted CFC model training.")
   return cfc_labels

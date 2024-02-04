@@ -18,7 +18,7 @@ import subprocess
 
 import os
 
-os.environ['CUBLAS_WORKSPACE_CSONFIG'] = ':16:8' #:4096:8
+os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':16:8' #:4096:8
 
 
 import sys
@@ -41,6 +41,7 @@ from fair_clustering.eval.functions import * #[TO-DO] Write base class and deriv
 
 from fair_clustering.dataset import ExtendedYaleB, Office31, MNISTUSPS, ExtendedYaleB_alter
 from fair_clustering.algorithm import FairSpectral, FairKCenter, FairletDecomposition, ScalableFairletDecomposition
+from holisticai.bias.metrics import cluster_balance, cluster_dist_entropy, cluster_dist_kl, cluster_dist_l1, silhouette_diff, min_cluster_ratio
 
 import matplotlib.pyplot as plt
 
