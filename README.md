@@ -3,7 +3,7 @@
 ### Environment and requirements:
 To install the required packages, create a new conda environment using the provided YAML file:
 ```bash
-conda env create -f FACT2024.yaml
+conda env create -f FACT2024.yml
 ```
 Activate the environment:
  ```bash
@@ -15,6 +15,18 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
+In order to run the KFC algorithm `IBM-CPLEX 20.1.0` needs to be installed. Instructions [here](https://www.ibm.com/support/pages/downloading-ibm-ilog-cplex-optimization-studio-2010). 
+
+Once you have succesfuly installed it you need to run:  
+```
+python "C:\Program Files\IBM\ILOG\CPLEX_Studio221\python\setup.py" install
+``` 
+
+And then: 
+```
+conda install -c ibmdecisionoptimization cplex
+```
+And now you can succesfully run cplex directly from python using PuLP!
 ### Datasets:
 First of all, it might be better to download the required datasets mnist_usps and office31, cropped Yale, uncropped Yale and MTFL locally to avoid potential network connection problems. 
   - On snellius, the dataset like mnist_usps should be put in `home5/scur1047/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mnist_usps`.
@@ -33,7 +45,7 @@ First of all, it might be better to download the required datasets mnist_usps an
          "https://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip"
         
 ### Attack
-In order to reproduce the results of the original paper navigate to Fair-Clustering-Codebase and run the following:
+In order to reproduce the attack results of the original paper navigate to Fair-Clustering-Codebase and run the following:
 ```
 python attack.py --dataset_name <DATASET_NAME> --cl_algo <CLUSTERING_ALGORITHM>
 ```
