@@ -38,6 +38,9 @@ elif name == 'MNIST_USPS':
 elif name == 'Yale':
   dataset = ExtendedYaleB(download=True, resize=True)
   X, y, s = dataset.data
+elif name == 'Yale_alter':
+  dataset = ExtendedYaleB_alter(resize=True)
+  X, y, s = dataset.data
 elif name == 'DIGITS':
   X, y, s = np.load('X_' + name + '.npy'), np.load('y_' + name + '.npy'), np.load('s_' + name + '.npy')
 elif name == 'MTFL':
@@ -199,6 +202,8 @@ def calculate_budget(name, cl_algo):
       return 20
     elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
       return 20
+  elif name == 'Yale_alter':
+    return 15
   elif name == 'DIGITS':
     if cl_algo == 'FSC':
       return 15
