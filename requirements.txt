@@ -9,3 +9,4 @@ pyckmeans
 holisticai
 tqdm
 nevergrad
+pyarrow
