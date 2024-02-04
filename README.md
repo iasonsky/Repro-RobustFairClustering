@@ -25,7 +25,7 @@ First of all, it might be better to download the required datasets mnist_usps an
     3. Extended YaleB (cropped): put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/extended_yaleB"
          "https://academictorrents.com/details/aad8bf8e6ee5d8a3bf46c7ab5adfacdd8ad36247"
     4. Extended YaleB (uncropped): put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/extended_yaleB_alter"
-         ""
+         "https://drive.google.com/file/d/1NSzt-Ld_HMrQKw_zrplpZlLbR0EaUVcJ/view?usp=sharing"
     5. MTFL: put it in "home5/scurXXXX/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mtfl"
          "https://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip"
         
