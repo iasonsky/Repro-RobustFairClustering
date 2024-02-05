@@ -1,7 +1,4 @@
 *.pyc
-*.png
-*.pkl
-*.txt
 /data/
 /fair_clustering/raw_data/
 *.zip
@@ -15,3 +12,4 @@ Attack.ipynb
 Attack copy.ipynb
 Defense.ipynb
 Attack copy 2.ipynb
+.gitignore
