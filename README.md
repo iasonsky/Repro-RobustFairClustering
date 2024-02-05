@@ -73,7 +73,7 @@ Note: We have only run a small grid search and the provided best `combined_attac
 If you want to run the experiments on Snellius you can run the `run_attack.job` file and adjust the file you want to run each time, as well as the directories to save your `.out` files.
 
 #### Results:
-All the results for pre-attack, post-attack and random attack for all datasets are presented in `Results_Office_MNIST.ipynb`, `Results_DIGITS_Yale.ipynb` and `Results_MTFL_Yale_alter.ipynb`. The results of Figure 1 can be found in `Fair-Clustering-Codebase/plot_data/repro_figure_2.ipynb`
+All the results for pre-attack, post-attack and random attack for all datasets are presented in `Results_Office_MNIST.ipynb`, `Results_DIGITS_Yale.ipynb` and `Results_MTFL_Yale_alter.ipynb`. The results of Figure 1 can be found in `plot_data/repro_figure_2.ipynb`
 
 ### Defense
 - For reproducing the results related to defense algorithm of the paper, if you work on snellius, please navigate to the directory home5/scur1047/Defense/CFC-master/Fair-Clustering-Codebase:
