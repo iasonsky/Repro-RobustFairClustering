@@ -11,7 +11,7 @@ class MTFL(ImageDataset):
     url = "https://mmlab.ie.cuhk.edu.hk/projects/TCDCN/data/MTFL.zip"
     filename = "MTFL.zip"
 
-    target_folder = "/home/scur1047/.conda/envs/FACT2024/lib/python311.zip/fair_clustering/raw_data/mtfl/MTFL"
+    target_folder = "/home/<user_name>/.conda/envs/RobustFairClustering/lib/python311.zip/fair_clustering/raw_data/mtfl/MTFL"
 
     #script_directory = os.path.dirname(os.path.abspath(__file__))
     #print(f"s", script_directory)
