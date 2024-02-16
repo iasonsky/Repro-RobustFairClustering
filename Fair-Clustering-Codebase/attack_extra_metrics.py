@@ -191,17 +191,20 @@ def calculate_budget(name, cl_algo):
       return 10
     elif cl_algo == 'SFD':
       return 50
-    elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
-      return 20
+    elif cl_algo == 'KFC':  # Update from author had 20 before
+      return 50
   elif name == 'Office-31':
-    return 20
+    if cl_algo == 'KFC': # Update from author was had before
+       return 10
+    else:
+      return 20
   elif name == 'Yale':
     if cl_algo == 'FSC':
       return 10
     elif cl_algo == 'SFD':
       return 20
-    elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
-      return 20
+    elif cl_algo == 'KFC': # Update from author had 20 before
+      return 5 
   elif name == 'Yale_alter':
     return 15
   elif name == 'DIGITS':
@@ -209,8 +212,8 @@ def calculate_budget(name, cl_algo):
       return 15
     elif cl_algo == 'SFD':
       return 25
-    elif cl_algo == 'KFC': # I randomly chose 20, need to motivate for paper
-      return 20
+    elif cl_algo == 'KFC': # Update from author, had 20 before
+      return 50
   elif name == "MTFL":
      return 50 # I tried 50 arbitrarly for now, let's wait for author's response
   elif name == "Yale_alter":

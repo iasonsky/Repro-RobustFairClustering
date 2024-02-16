@@ -1,0 +1,94 @@
+(nlp1-practical1) C:\Users\iason\Dev\FACT-2024\Fair-Clustering-Codebase>python attack_extra_metrics.py --dataset Office-31 --cl_algo KFC
+(1293, 2048), (1293,), (1293,)
+Clustering Algorithm: KFC
+Dataset: Office-31
+Number of Clusters: 31
+Number of Data Points: 1293
+Number of Sensitive Features: 2
+Number of Features: 2048
+# of clusters -> 31
+Trial 1 with random state 150
+[zoopt] expected remaining running time: 00:01:22
+[zoopt] x: [1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0]
+[zoopt] value: 0.333798495042984
+Trial 2 with random state 1
+[zoopt] expected remaining running time: 00:01:15
+[zoopt] x: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1]
+[zoopt] value: 0.333798495042984
+Trial 3 with random state 4200
+[zoopt] expected remaining running time: 00:01:17
+[zoopt] x: [0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0]
+[zoopt] value: 0.333798495042984
+Trial 4 with random state 424242
+[zoopt] expected remaining running time: 00:01:14
+[zoopt] x: [0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0]
+[zoopt] value: 0.6803276858493709
+Trial 5 with random state 1947
+[zoopt] expected remaining running time: 00:01:21
+[zoopt] x: [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0]
+[zoopt] value: 0.333798495042984
+Trial 6 with random state 355
+[zoopt] expected remaining running time: 00:01:19
+[zoopt] x: [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0]
+[zoopt] value: 0.333798495042984
+Trial 7 with random state 256
+[zoopt] expected remaining running time: 00:01:24
+[zoopt] x: [0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]
+[zoopt] value: 0.333798495042984
+Trial 8 with random state 7500
+[zoopt] expected remaining running time: 00:01:21
+[zoopt] x: [0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1]
+[zoopt] value: 0.6615913710824077
+Trial 9 with random state 99999
+[zoopt] expected remaining running time: 00:01:18
+[zoopt] x: [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1]
+[zoopt] value: 0.333798495042984
+Trial 10 with random state 18
+[zoopt] expected remaining running time: 00:01:21
+[zoopt] x: [0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0]
+[zoopt] value: 0.333798495042984
+
+Pre-Attack Results for Office-31 and KFC
+=========================================
+BALANCE: Mean = 0.971343454893184, Std = 0.0679936947735111
+MIN_CLUSTER_RATIO: Mean = 0.6263759598738403, Std = 0.018316442468361404
+CLUSTER_DIST_L1: Mean = 0.00017632625644118942, Std = 0.0003539178881206086
+CLUSTER_DIST_KL: Mean = 2.489369665162422e-05, Std = 6.04458783034378e-05
+SILHOUETTE_DIFF: ['N/A', 'N/A', 'N/A', 0.0020763326374944047, 'N/A', 'N/A', 'N/A', -0.0005099777737818528, 'N/A', 'N/A']
+ENTROPY: Mean = 0.4012307017275651, Std = 0.1349294721992218
+ENTROPY_GROUP_A: Mean = 0.006650389966897251, Std = 0.015429326365715371
+ENTROPY_GROUP_B: Mean = 0.006577742478519377, Std = 0.01650111747928119
+ACC: Mean = 0.05017182130584193, Std = 0.0007873841400267759
+NMI: Mean = 0.001191215754896048, Std = 0.0027166187645320593
+ARI: Mean = 1.5052369637813272e-05, Std = 3.0357296073713097e-05
+SIL: ['N/A', 'N/A', 'N/A', 0.13810820086061593, 'N/A', 'N/A', 'N/A', 0.08857550114396506, 'N/A', 'N/A']
+
+Post-Attack Results for Office-31 and KFC
+=========================================
+BALANCE: Mean = 0.971343454893184, Std = 0.0679936947735111
+MIN_CLUSTER_RATIO: Mean = 0.6263759598738403, Std = 0.018316442468361404
+CLUSTER_DIST_L1: Mean = 0.00017632625644118942, Std = 0.0003539178881206086
+CLUSTER_DIST_KL: Mean = 2.489369665162422e-05, Std = 6.04458783034378e-05
+SILHOUETTE_DIFF: ['N/A', 'N/A', 'N/A', 0.0020763326374944047, 'N/A', 'N/A', 'N/A', -0.0002200015829245741, 'N/A', 'N/A']
+ENTROPY: Mean = 0.4012307017275651, Std = 0.1349294721992218
+ENTROPY_GROUP_A: Mean = 0.006650389966897251, Std = 0.015429326365715371
+ENTROPY_GROUP_B: Mean = 0.006577742478519377, Std = 0.01650111747928119
+ACC: Mean = 0.050085910652920965, Std = 0.0005500965839718922
+NMI: Mean = 0.0011888388247606435, Std = 0.002709896797394203
+ARI: Mean = 1.3495716722307626e-05, Std = 2.699480943216259e-05
+SIL: ['N/A', 'N/A', 'N/A', 0.13810820086061593, 'N/A', 'N/A', 'N/A', 0.09325276817481463, 'N/A', 'N/A']
+
+Random Attack Results for Office-31 and KFC
+=========================================
+BALANCE: Mean = 0.971343454893184, Std = 0.0679936947735111
+MIN_CLUSTER_RATIO: Mean = 0.6263759598738403, Std = 0.018316442468361404
+CLUSTER_DIST_L1: Mean = 0.00017632625644118942, Std = 0.0003539178881206086
+CLUSTER_DIST_KL: Mean = 2.489369665162422e-05, Std = 6.04458783034378e-05
+SILHOUETTE_DIFF: ['N/A', 'N/A', 'N/A', 0.0020763326374944047, 'N/A', 'N/A', 'N/A', -0.0006535168590102863, 'N/A', 'N/A']
+ENTROPY: Mean = 0.4012307017275651, Std = 0.1349294721992218
+ENTROPY_GROUP_A: Mean = 0.006650389966897251, Std = 0.015429326365715371
+ENTROPY_GROUP_B: Mean = 0.006577742478519377, Std = 0.01650111747928119
+ACC: Mean = 0.05025773195876289, Std = 0.0010345012524735633
+NMI: Mean = 0.0013930617104202382, Std = 0.003293718442412546
+ARI: Mean = 2.1901642466038112e-05, Std = 4.7835726857706346e-05
+SIL: ['N/A', 'N/A', 'N/A', 0.13810820086061593, 'N/A', 'N/A', 'N/A', 0.08724804520668472, 'N/A', 'N/A']
