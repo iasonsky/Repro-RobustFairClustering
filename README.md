@@ -1,4 +1,7 @@
-## Reproducibility study for the ICLR'23 paper: [Robust Fair Clustering: A Novel Fairness Attack and Defense Framework](https://arxiv.org/pdf/2210.01953.pdf)
+# Reproducibility study for the ICLR'23 paper: [Robust Fair Clustering: A Novel Fairness Attack and Defense Framework](https://arxiv.org/pdf/2210.01953.pdf)
+### Iason Skylitsis, Zheng Feng, Idries Nasim, Camille Niessink
+
+This reproducibility study has been published in the **Transactions of Machine Learning Research (TMLR)**. You can access the publication [here](https://openreview.net/forum?id=H1hLNjwrGy).
 
 ### Environment and requirements:
 To install the required packages, create a new conda environment using the provided YAML file:
