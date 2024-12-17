@@ -3,7 +3,7 @@ gdown
 kmedoids
 pulp
 torch
-scikit-learn==1.2.2
+scikit-learn==1.5.0
 zoopt
 pyckmeans
 holisticai
